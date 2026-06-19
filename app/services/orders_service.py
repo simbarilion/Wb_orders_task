@@ -52,7 +52,7 @@ class OrdersService:
         return pd.DataFrame(rows)
 
     @staticmethod
-    def _get_top_articles(df: pd.DataFrame) -> pd.DataFrame:
+    def get_top_articles(df: pd.DataFrame) -> pd.DataFrame:
         """
         Находит топ‑3 самых частых артикулов в DataFrame.
         Args:
@@ -73,3 +73,12 @@ class OrdersService:
         df = self._transform(raw)
 
         return df
+
+    @staticmethod
+    def build_top_articles_message(top_df: pd.DataFrame) -> str:
+        lines = ["Топ-3 артикула по количеству заказов за вчера:", ""]
+
+        for idx, row in enumerate(top_df.itertuples(), start=1):
+            lines.append(f"{idx}. {row.article} — {row.count} заказов")
+
+        return "\n".join(lines)

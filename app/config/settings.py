@@ -17,6 +17,9 @@ LOGS_DIR = Path("logs")
 LOGS_DIR.mkdir(exist_ok=True)
 LOGS_LEVEL = 2
 
+TG_TOKEN = os.getenv("TG_TOKEN")
+TG_CHAT_ID = os.getenv("TG_CHAT_ID")
+
 
 def make_filename(query: str, ext: str):
     """
