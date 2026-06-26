@@ -170,8 +170,6 @@ poetry run python -m app.main
 
 ## Автор
 
-Разработано в рамках тестового задания.
-
 Надежда Попова
 
 Python Developer
